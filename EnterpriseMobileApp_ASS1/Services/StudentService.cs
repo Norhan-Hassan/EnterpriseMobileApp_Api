@@ -89,10 +89,10 @@ namespace EnterpriseMobileApp_ASS1.Services
                 student.Level = infoDto.Level;
             }
 
-            if (!string.IsNullOrEmpty(infoDto.Image))
-            {
-                student.Image = infoDto.Image;
-            }
+            //if (!string.IsNullOrEmpty(infoDto.Image))
+            //{
+            //    student.Image = infoDto.Image;
+            //}
 
             // Save changes to the database
             await _context.SaveChangesAsync();
@@ -108,7 +108,7 @@ namespace EnterpriseMobileApp_ASS1.Services
 
             if (student == null)
             {
-                return null; // Or throw an exception as per your requirement
+                return null; 
             }
 
             var baseUrl = GetBaseUrl();
@@ -121,7 +121,7 @@ namespace EnterpriseMobileApp_ASS1.Services
                 Gender = student.Gender,
                 Email = student.Email,
                 Level = student.Level,
-                Image = imageUrl
+                // Image = imageUrl
             };
 
             return studentInfo;
