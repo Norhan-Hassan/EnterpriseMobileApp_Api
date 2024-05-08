@@ -5,7 +5,8 @@ namespace EnterpriseMobileApp_ASS1.Models
 {
     public class Student 
     {
-
+        [Key]
+        public int Id { get; set; }
         [Required]
         public string Name { get; set; }
 
@@ -16,9 +17,9 @@ namespace EnterpriseMobileApp_ASS1.Models
         [RegularExpression(@"^\d+@stud\.fci-cu\.edu\.eg$", ErrorMessage = "Email format is invalid. It must be ID@stud.fci-cu.edu.eg")]
         public string Email { get; set; }
 
-        [Key]
         [Required]
         public string StudentId { get; set; }
+
         [Range(1,4,ErrorMessage="level must be btween 1 and 4.")]
         public int Level { get; set; }
 
@@ -26,6 +27,8 @@ namespace EnterpriseMobileApp_ASS1.Models
         [MinLength(8)]
         public string Password { get; set; }
         public string Image { get; set; }
+
+        public virtual ICollection<Favourite_Store> favourites { get; set; }
 
 
     }

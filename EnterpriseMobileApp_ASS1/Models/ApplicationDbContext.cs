@@ -10,7 +10,9 @@ namespace EnterpriseMobileApp_ASS1.Models
         : base(options)
         {
         }
-        
+        public DbSet<Store> Store { get; set; }
+        public DbSet<Favourite_Store> Favourite { get; set; }
+
         public DbSet<Student> Student { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -18,6 +20,8 @@ namespace EnterpriseMobileApp_ASS1.Models
 
             // Configure table name for Tourist entity
             builder.Entity<Student>().ToTable("Student");
+            builder.Entity<Store>().ToTable("Store");
+            builder.Entity<Favourite_Store>().ToTable("Favourite");
         }
 
 
